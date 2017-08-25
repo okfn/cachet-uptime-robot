@@ -176,7 +176,7 @@ class Monitor(object):
         self.monitor_list = monitor_list
         self.api_key = api_key
 
-    def send_data_to_catchet(self, monitor):
+    def send_data_to_cachet(self, monitor):
         """ Posts data to Cachet API.
             Data sent is the value of last `Uptime`.
         """
@@ -218,7 +218,7 @@ class Monitor(object):
                         monitor['url'],
                         monitor['id'],
                     ))
-                    self.send_data_to_catchet(monitor)
+                    self.send_data_to_cachet(monitor)
         else:
             print('ERROR: No data was returned from UptimeMonitor')
 
