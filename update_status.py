@@ -27,7 +27,7 @@ class UptimeRobot(object):
                 # monitor will be returned. Should be set to 1 for getting them.
                 # Default is 0)
                 'response_times': format(response_times),
-                 # logs - optional (defines if the logs of each monitor will be
+                # logs - optional (defines if the logs of each monitor will be
                 # returned. Should be set to 1 for getting the logs. Default is 0)
                 'logs': format(logs),
                 # customUptimeRatio - optional (defines the number of days to calculate
@@ -40,7 +40,10 @@ class UptimeRobot(object):
             url=endpoint,
             data=data,
             method='POST',
-            headers={'content-type': "application/x-www-form-urlencoded",'cache-control': "no-cache"},
+            headers={
+                'Content-Type': 'application/x-www-form-urlencoded',
+                'Cache-Control': 'no-cache'
+            },
         )
 
         # Verifying in the response is jsonp in otherwise is error
