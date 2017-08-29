@@ -4,7 +4,6 @@ LABEL maintainer="Open Knowledge International <sysadmin@okfn.org>"
 WORKDIR /app
 VOLUME /app
 
-COPY config.ini .
 COPY docker/crontab /var/spool/cron/crontabs/root
 COPY update_status.py /usr/bin/update_status
 
