@@ -191,13 +191,13 @@ class Monitor(object):
             cachet_url=website_config['cachet_url'],
         )
 
-        if 'component_id' in website_config:
+        if website_config.get('component_id'):
             cachet.update_component(
                 website_config['component_id'],
                 int(monitor.get('status'))
             )
 
-        if 'metric_id' in website_config:
+        if website_config.get('metric_id'):
             self.sync_metric(monitor, cachet)
 
     def sync_metric(self, monitor, cachet):
@@ -296,12 +296,9 @@ def parse_config(config_file):
             monitor_dict[element] = {
                 'cachet_api_key': config[element]['CachetApiKey'],
                 'cachet_url': config[element]['CachetUrl'],
-                'metric_id': config[element]['MetricId'],
+                'metric_id': config[element].get('MetricId'),
+                'component_id': config[element].get('ComponentId'),
             }
-            if 'ComponentId' in config[element]:
-                monitor_dict[element].update({
-                    'component_id': config[element]['ComponentId'],
-                })
 
     return monitor_dict, uptime_robot_api_key
 
