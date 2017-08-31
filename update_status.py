@@ -197,7 +197,8 @@ class Monitor(object):
                 int(monitor.get('status'))
             )
 
-        self.sync_metric(monitor, cachet)
+        if 'metric_id' in website_config:
+            self.sync_metric(monitor, cachet)
 
     def sync_metric(self, monitor, cachet):
         website_config = self._get_website_config(monitor)

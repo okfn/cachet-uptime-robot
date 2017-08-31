@@ -60,7 +60,6 @@ class TestMonitor(object):
             )
 
 
-
 @pytest.fixture
 def monitor_list():
     return {
@@ -113,10 +112,10 @@ def monitor(monitor_list):
     api_key = 'UPTIME_ROBOT_API_KEY'
     return update_status.Monitor(monitor_list, api_key)
 
+
 @pytest.fixture
 def cachet():
     return update_status.CachetHq(
         cachet_api_key='CACHET_API_KEY',
         cachet_url='CACHET_URL'
     )
-
